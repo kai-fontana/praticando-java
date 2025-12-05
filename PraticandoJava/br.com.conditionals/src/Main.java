@@ -3,7 +3,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         /*
         //Um numero maior que o outro
         int numero1 = 10;
@@ -18,10 +17,10 @@ public class Main {
 
 
         //Desconto de 10% em compras acima R$100
-        Scanner scan = new Scanner(System.in);
+        
         double valorFinal;
         double desconto;
-
+Scanner scan = new Scanner(System.in);
         System.out.println("Insira o valor da compra");
         double valorCompra = scan.nextDouble();
 
@@ -37,10 +36,8 @@ public class Main {
 
 
         //Dias da semana
-        Scanner scan = new Scanner(System.in);
-
         System.out.println("Insira um dia semana: ");
-        String entradaUsuario = scan.nextLine();
+        String entradaUsuario = scan.next();
 
         switch (entradaUsuario) {
             case "segunda":
@@ -57,12 +54,47 @@ public class Main {
             default:
                 System.out.println("Entrada inválida");
         }
-        */
+
+        
+
 
         //Valor de emprestimo
-        Scanner scan = new Scanner(System.in);
+        
 
         System.out.println("Digite o valor do empréstimo: ");
-        double entradaUsuario = scan.nextDouble();
+        int valorEmprestimo = scan.nextInt();
+
+        if (valorEmprestimo >= 1000 && valorEmprestimo < 5000) {
+            System.out.println("O valor foi aceito!");
+        } else {
+            System.out.printf("O valor %d, não está dentro do intervalo permitido para empréstimo.",  valorEmprestimo);
+        
+        }
+        
+        */
+
+        //Formando triângulos
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Insira o 1º lado: ");
+        int ladoUm = scan.nextInt();
+
+        System.out.println("Insira o 2º lado: ");
+        int ladoDois = scan.nextInt();
+
+        System.out.println("Insira o 3º lado: ");
+        int ladoTres = scan.nextInt();
+
+        int somaDosLados = 0;
+
+        if ((ladoUm + ladoDois) > ladoTres) {
+            System.out.println("Os lados podem formar um triângulo. ");
+        } else {
+            System.out.println("Os lados NÃO podem formar um triângulo!");
+        }
+        
+
+        scan.close();
     }
 }

@@ -34,6 +34,6 @@ public class Main {
         char technology = 'T';
         char story = 'S';
 
-        System.out.println('Book registered: %s by %s');
+        System.out.printf("Book registered: %s by %s", title, author);
     }
 }
