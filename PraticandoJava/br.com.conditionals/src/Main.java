@@ -1,9 +1,10 @@
-import java.util.Locale;
+
 import java.util.Scanner;
 
 public class Main {
+
     public static void main(String[] args) {
-        /*
+        
         //Um numero maior que o outro
         int numero1 = 10;
         int numero2 = 25;
@@ -20,7 +21,7 @@ public class Main {
         
         double valorFinal;
         double desconto;
-Scanner scan = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("Insira o valor da compra");
         double valorCompra = scan.nextDouble();
 
@@ -71,11 +72,9 @@ Scanner scan = new Scanner(System.in);
         
         }
         
-        */
+        
 
         //Formando triângulos
-
-        Scanner scan = new Scanner(System.in);
 
         System.out.println("Insira o 1º lado: ");
         int ladoUm = scan.nextInt();
@@ -94,7 +93,58 @@ Scanner scan = new Scanner(System.in);
             System.out.println("Os lados NÃO podem formar um triângulo!");
         }
         
+       
 
+
+        //Compatibilidade para doar sangue
+
+        System.out.println("Digite a idade do doador: ");
+        int idadeDoador = scan.nextInt();
+        System.out.println("Digite o peso do doador(em kg): ");
+        int pesoDoador = scan.nextInt();
+
+        if(idadeDoador >= 18 && idadeDoador <= 65 && pesoDoador > 50) {
+            System.out.println("O doador é compatível.");
+        } else if (idadeDoador < 18 || idadeDoador > 65) {
+            System.out.println("O doador não é compatível.");
+            System.out.println("Motivo: Deve ter entre 18 e 65 anos.");
+        } else if (pesoDoador < 50) {
+            System.out.println("O doador não é compatível.");
+            System.out.println("Motivo: Deve ter mais de 50kg.");
+        }
+
+
+        //Verificação de acesso e de permissões
+
+        final int CODIGO_DE_ACESSO = 2023;
+
+        System.out.println("Digite o código de acesso: ");
+        int codigoAcessoUsuario = scan.nextInt();
+        System.out.println("Digite o nível de permissão: ");
+        int nivelPermissaoUsuario = scan.nextInt();
+
+        boolean nivelEncontrado = false;
+        int[] niveisDePermissao = {1, 2, 3};
+
+        for (int nivel : niveisDePermissao) {
+            if (nivel == nivelPermissaoUsuario) {
+                nivelEncontrado = true;
+                break;
+            } else {
+                nivelEncontrado = false;
+            }
+        }
+
+        if (codigoAcessoUsuario == CODIGO_DE_ACESSO && nivelEncontrado) {
+            System.out.println("Acesso permitido. Bem-vindo ao sistema!");
+
+        } else if (nivelEncontrado == false) {
+            System.out.println("Acesso negado.");
+            System.out.println("Motivo: Nível de permissão não encontrado.");
+        } else if (codigoAcessoUsuario != CODIGO_DE_ACESSO) {
+            System.out.println("Acesso negado.");
+            System.out.println("Motivo: O código de acesso está incorreto.");
+        }
         scan.close();
     }
 }
