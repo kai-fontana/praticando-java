@@ -38,10 +38,9 @@ public class Main {
             }
         }
         System.out.println("A soma dos números pares de 1 a 100 é: " + somaNumerosPares);
-        */
+        
 
         //Calculando o fatorial
-        Scanner scan = new Scanner(System.in);
 
         System.out.println("Digite um número: ");
         int numero = scan.nextInt();
@@ -52,6 +51,24 @@ public class Main {
             fatorialNumero *= i; 
         }
         System.out.printf("O fatorial de %d é de: " + fatorialNumero, numero ); 
+        */
+
+        //Encontrando o maior número
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Quantos números você quer inserir? ");
+        int tamanhoArray = scan.nextInt();
+
+        int[] numeros = new int[tamanhoArray];
+
+        System.out.println("Digite os números separados por espaço: ");
+
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.print("Número " + (i + 1) + ": ");
+            numeros[i] = scan.nextInt();
+            
+        }
+        
         scan.close();
     }
 }
