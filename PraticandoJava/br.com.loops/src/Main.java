@@ -51,24 +51,59 @@ public class Main {
             fatorialNumero *= i; 
         }
         System.out.printf("O fatorial de %d é de: " + fatorialNumero, numero ); 
-        */
+        
 
         //Encontrando o maior número
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Quantos números você quer inserir? ");
-        int tamanhoArray = scan.nextInt();
-
-        int[] numeros = new int[tamanhoArray];
+        
 
         System.out.println("Digite os números separados por espaço: ");
 
-        for (int i = 0; i < numeros.length; i++) {
-            System.out.print("Número " + (i + 1) + ": ");
-            numeros[i] = scan.nextInt();
-            
+        String[] numerosString = scan.nextLine().split(" ");
+
+        int maiorNumero = Integer.MIN_VALUE;
+
+        for (String numeroString : numerosString) {
+            int numero = Integer.parseInt(numeroString);
+            if (numero > maiorNumero) {
+                maiorNumero = numero;
+                
+            }
         }
-        
+        System.out.println("O maior número é: " + maiorNumero);
+
+         */
+        //Limite de tentativas 
+        Scanner scan = new Scanner(System.in);
+        int senhaCorreta = 123456;
+
+        System.out.println("Insira a sua senha: ");
+        int senhaUsuario = scan.nextInt();
+        boolean estaCorreta = false;
+        do {
+            int numeroTentativas = 3;
+            int tentativasUsadas = 0;
+
+            if (senhaUsuario == senhaCorreta && tentativasUsadas < numeroTentativas) {
+                estaCorreta = true;
+                System.out.println("Senha correta! Liberando acesso...");
+                break;
+            } else if (senhaUsuario != senhaCorreta) {
+                estaCorreta = false;
+                System.out.println("Senha incorreta. Tente novamente!");
+                tentativasUsadas++;
+                
+                if (tentativasUsadas == numeroTentativas) {
+                    System.out.println("O seu número de tentativas se esgotou");
+                    break;
+                } else {
+                    int tentativasRestantes = numeroTentativas - tentativasUsadas;
+                    System.out.println("Você ainda tem " + tentativasRestantes + " tentativas restantes.");
+                    continue;
+                }
+            }
+
+        } while (estaCorreta == false);
+
         scan.close();
     }
 }
